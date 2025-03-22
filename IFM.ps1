@@ -11,7 +11,7 @@ Function Filehash ($filepath) {
 }
 
 Function Delete-Baseline-if-already-exists () {
-    $baselineExists = Test-Path -Path "C:\Users\deeba_bkj3l2w\OneDrive\Documents"
+    $baselineExists = Test-Path -Path "Path" #Enter path of your baseline
     
     if ($baselineExists) {
         Remove-Item .\baseline.txt -ErrorAction SilentlyContinue
@@ -33,7 +33,7 @@ while ($true) {
         #Delete baseline if already exists
         Delete-Baseline-if-already-exists 
         Write-Host "Calculating hashes and creating baseline.txt" -ForegroundColor Cyan
-        $files = Get-ChildItem -Path .\Deebak
+        $files = Get-ChildItem -Path .\Directory #Enter the directory to scan
         foreach ($f in $files) {
             $hash = Filehash $f.FullName
             "$($hash.Path)|$($hash.Hash)" | Out-File -FilePath .\baseline.txt -Append
@@ -54,7 +54,7 @@ while ($true) {
         # Begin file monitoring with baseline
         while ($true) {
             Start-Sleep 1
-            $files = Get-ChildItem -Path .\Deebak
+            $files = Get-ChildItem -Path .\Directory #Enter directory to scan
             foreach ($f in $files) {
                 $hash = Filehash $f.FullName
                 
