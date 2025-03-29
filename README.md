@@ -1,4 +1,4 @@
-Integrity File Manager:
+Integrity File Monitoring System:
   
   A PowerShell-based file integrity monitoring solution that detects and reports changes to your file system baseline.
 
